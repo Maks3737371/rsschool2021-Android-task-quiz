@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentOnAttachListener
 import java.util.zip.Inflater
@@ -17,7 +18,7 @@ val questions = listOf(
     Question("Which is green?",                         listOf("Square", "Water", "Battery", "Grass", "Sun"),           3),
     Question("Who is faster?",                          listOf("I`m", "Tortoise", "Panda", "Candy", "Light"),           4),
     Question("What is lemon?",                          listOf("Lemon", "Not Lemon", "Lemonade", "Banana", "Soup"),     0),
-    Question("What is the lowest calorie vegetable?",   listOf("Zucchini", "Cucumber", "beet", "carrot", "tomato"),     1))
+    Question("What is the lowest calorie vegetable?",   listOf("Zucchini", "Cucumber", "Beet", "Carrot", "Tomato"),     1))
 
 val theme = listOf(
     R.style.Theme_Quiz_First,
@@ -86,13 +87,18 @@ class QuestionFragment : Fragment(){
         if(numberQuestion == 0) binding.previousButton.isEnabled = false
         if(numberQuestion == (questions.size-1)) binding.nextButton.text = "SUBMIT"
 
+        if (numberQuestion == 0)
+            binding.toolbar.navigationIcon = null
         binding.toolbar.setNavigationOnClickListener(View.OnClickListener{
             if (numberQuestion != 0) listener.TransitQuestion(numberQuestion-1)
         })
 
+
+        binding.previousButton.isVisible = numberQuestion > 0
         binding.previousButton.setOnClickListener{
             listener.TransitQuestion(numberQuestion-1)
         }
+
         binding.nextButton.setOnClickListener{
             if (binding.nextButton.text =="SUBMIT")
             {
