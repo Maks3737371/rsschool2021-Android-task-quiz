@@ -13,11 +13,11 @@ import com.rsschool.quiz.databinding.FragmentQuizBinding
 data class Question(val title: String, val options: List<String>, val trueAnswer: Int)
 
 val questions = listOf(
-    Question("Which number is greater?",    listOf("1", "0", "99", "64", "3"),                              2),
-    Question("Which is green?",             listOf("Square", "Water", "Battery", "Grass", "Sun"),           3),
-    Question("Who is faster?",              listOf("I`m", "Tortoise", "Panda", "Candy", "Light"),           4),
-    Question("Lemon?",                      listOf("Lemon", "Not Lemon", "Some Lemon", "Banana", "Soup"),   0),
-    Question("Have a nice day",             listOf("Thank you", "Thx, you too", "Meow", "0_0", "Ok"),       1))
+    Question("Which number is greater?",                listOf("1", "0", "99", "64", "3"),                              2),
+    Question("Which is green?",                         listOf("Square", "Water", "Battery", "Grass", "Sun"),           3),
+    Question("Who is faster?",                          listOf("I`m", "Tortoise", "Panda", "Candy", "Light"),           4),
+    Question("What is lemon?",                          listOf("Lemon", "Not Lemon", "Lemonade", "Banana", "Soup"),     0),
+    Question("What is the lowest calorie vegetable?",   listOf("Zucchini", "Cucumber", "beet", "carrot", "tomato"),     1))
 
 val theme = listOf(
     R.style.Theme_Quiz_First,
